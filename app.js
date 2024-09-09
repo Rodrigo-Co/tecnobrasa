@@ -16,7 +16,7 @@ app.use(bodyParser.json());
 const db = mysql.createConnection({
     host: 'localhost',
     user: 'root', // Substitua pelo seu usuário do MySQL
-    password: 'cimatec', // Substitua pela sua senha do MySQL
+    password: 'rodrigo', // Substitua pela sua senha do MySQL
     database: 'bancotb', // Nome do seu banco de dados
 });
 
@@ -29,19 +29,19 @@ db.connect((err) => {
 
 // Servir arquivos estáticos (CSS, imagens, etc.)
 app.use(express.static(path.join(__dirname, 'public'), {
-  setHeaders: (res, path) => {
-    const mimeType = mime.lookup(path);
-    res.setHeader('Content-Type', mimeType);
-  }
+    setHeaders: (res, path) => {
+        const mimeType = mime.lookup(path);
+        res.setHeader('Content-Type', mimeType);
+    }
 }));
 console.log('Servindo arquivos estáticos a partir da pasta public');
 
 // Armazenar informações do usuario
 app.use(session({
-  secret: 'segredo',
-  resave: false,
-  saveUninitialized: true,
-  cookie: { secure: false }
+    secret: 'segredo',
+    resave: false,
+    saveUninitialized: true,
+    cookie: { secure: false }
 }));
 
 // Servir o arquivo HTML
@@ -49,20 +49,31 @@ app.get('/', (req, res) => {
     res.sendFile(path.join(__dirname, '/public/html/indexInicio.html'));
 });
 
+app.get('/login', (req, res) => {
+    res.sendFile(path.join(__dirname, '/public/html/indexSingIn.html'));
+});
+app.get('/cadastro', (req, res) => {
+    res.sendFile(path.join(__dirname, '/public/html/indexCadastro.html'));
+});
+app.get('/word', (req, res) => {
+    res.sendFile(path.join(__dirname, '/public/html/word.html'));
+});
+
+
 app.get('/pagaluno', (req, res) => {
     if (!req.session.usuario) {
-      res.redirect('/login');
-      return;
+        res.redirect('/login');
+        return;
     }
     res.sendFile(path.join(__dirname, '/public/html/pagaluno.html'));
-  });
+});
 
-  app.use('/pagaluno', (req, res, next) => {
+app.use('/pagaluno', (req, res, next) => {
     if (!req.session.usuario) {
-      return res.status(401).send({ message: 'Você precisa se registrar ou logar para acessar esta página.' });
+        return res.status(401).send({ message: 'Você precisa se registrar ou logar para acessar esta página.' });
     }
     next();
-  });
+});
 
 
 
@@ -79,16 +90,16 @@ app.post('/login', (req, res) => {
             res.json({ success: true });
         } else {
             const queryVerificarEmail = 'SELECT * FROM usuario WHERE email = ?';
-        db.query(queryVerificarEmail, [email], (err, results) => {
-        if (err) {
-          throw err;
-        }
-        if (results.length > 0) {
-            res.json({ success: false, message: 'Senha incorreta!' }); // Senha incorreta
-        } else {
-            res.json({ success: false, message: 'Dados não encontrados!' }); // Email e senha incorretos
-        }
-      });
+            db.query(queryVerificarEmail, [email], (err, results) => {
+                if (err) {
+                    throw err;
+                }
+                if (results.length > 0) {
+                    res.json({ success: false, message: 'Senha incorreta!' }); // Senha incorreta
+                } else {
+                    res.json({ success: false, message: 'Dados não encontrados!' }); // Email e senha incorretos
+                }
+            });
         }
     });
 });
@@ -134,11 +145,11 @@ app.post('/verificarCadastro', (req, res) => {
 // verificar login
 app.get('/verificarLogin', (req, res) => {
     if (req.session.usuario) {
-      res.json({ logado: true });
+        res.json({ logado: true });
     } else {
-      res.json({ logado: false });
+        res.json({ logado: false });
     }
-  });
+});
 
 // Rota para buscar dados
 app.get('/getData', (req, res) => {
@@ -156,7 +167,7 @@ app.put('/update/:idusuario', (req, res) => {
     const { idusuario } = req.params;
     const { nome, email, senha } = req.body;
     const query = 'UPDATE usuario SET nome = ?, email = ?, senha = ? WHERE idusuario = ?';
-    db.query(query, [nome, email, senha,idusuario], (err, result) => {
+    db.query(query, [nome, email, senha, idusuario], (err, result) => {
         if (err) {
             throw err;
         }

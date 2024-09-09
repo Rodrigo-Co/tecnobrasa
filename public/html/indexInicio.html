@@ -7,14 +7,14 @@
     <meta name="description" content="">
     <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
     <meta name="generator" content="Hugo 0.122.0">
-    <title>Navbar Template · Bootstrap v5.3</title>
+    <title>TECNOBRASA</title>
 
     <link rel="canonical" href="https://getbootstrap.com/docs/5.3/examples/navbars-offcanvas/">
 
     
 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@docsearch/css@3">
-
+    <link rel="stylesheet" type="text/css" href="/css/indexInicio.css"/>
   <link href="/assets/dist/css/bootstrap.min.css" rel="stylesheet">
     <main>
     <style>
@@ -131,33 +131,86 @@
         <div class="offcanvas-body">
           <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
             <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="#">Início</a>
+              <a class="nav-link active" aria-current="page" href="/">Início</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">Link</a>
+              <a class="nav-link" href="/html/indexSingIn.html">Página do aluno</a>
             </li>
             <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                Dropdown
+              <a class="nav-link dropdown-toggle" href="/" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                Cursos
               </a>
               <ul class="dropdown-menu">
-                <li><a class="dropdown-item" href="#">Action</a></li>
-                <li><a class="dropdown-item" href="#">Another action</a></li>
-                <li>
-                  <hr class="dropdown-divider">
-                </li>
-                <li><a class="dropdown-item" href="#">Something else here</a></li>
+                <li><a class="dropdown-item">Pacote Office</a></li>
+                <li><a class="dropdown-item">Montagem e Manutenção de Computadores</a></li>
               </ul>
             </li>
           </ul>
           <form class="d-flex mt-3 mt-lg-0" role="search">
-            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-            <button class="btn btn-outline-success" type="submit">Pesquisar</button>
+            <input class="form-control me-2" type="search" placeholder="Pesquisar" aria-label="Search">
+            <!-- <button class="btn btn-outline-success" type="submit" style="border-color: brown; color: brown; ">Pesquisar</button>-->
           </form>
         </div>
       </div>
     </div>
   </nav>
+
+  <div id="carouselExampleCaptions" class="carousel slide">
+    <div class="carousel-indicators"> 
+      <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" aria-label="Slide 1" class="active" aria-current="true"></button>
+      <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" class="" aria-label="Slide 2"></button>
+      <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3" class=""></button>
+      <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="3" aria-label="Slide 4" class=""></button>
+      <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="4" aria-label="Slide 5" class=""></button>
+    </div>
+    <div class="carousel-inner">
+      <div class="carousel-item active">
+        <img src="../img/slide1.png" class="d-block w-100" alt="Quinto slide">
+        <div class="carousel-caption d-none d-md-block">
+          <h5>Venha conhecer nossos cursos!</h5>
+          <p>Construa seu futuro com cursos da TecnoBrasa.</p>
+        </div>
+      </div>
+      <div class="carousel-item">
+        <img src="../img/slide2.png" class="d-block w-100" alt="Primeiro slide">
+        <div class="carousel-caption d-none d-md-block">
+          <h5>Excel na Prática</h5>
+          <p>Aprenda a montar uma planilha personalizada, com fórmulas,funções e gráficos.</p>
+        </div>
+      </div>
+      <div class="carousel-item">
+        <img src="../img/slide3.png" class="d-block w-100" alt="Segundo slide">
+        <div class="carousel-caption d-none d-md-block">
+          <h5>PowerPoint</h5>
+          <p>Com esse curso, você vai praticar a criação/edição e exibição de apresentações gráficas.</p>
+        </div>
+      </div>
+      <div class="carousel-item">
+        <img src="../img/slide4.png" class="d-block w-100" alt="Terceiro slide">
+      <div class="carousel-caption d-none d-md-block">
+        <h5>Word na Prática</h5>
+        <p>Projetado para ajudar você a criar documentos de qualidade profissional pode ajudá-lo a organizar e redigir documentos de maneira mais eficaz.</p>
+      </div>
+    </div>
+    <div class="carousel-item">
+      <img src="../img/slide5.png" class="d-block w-100" alt="Quarto slide">
+    <div class="carousel-caption d-none d-md-block">
+      <h5>Montagem e 
+        Manutenção de Computadores</h5>
+      <p>Este curso apresenta informações sobre a montagem, configuração e manutenção de hardware de computadores.</p>
+    </div>
+  </div>
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Anterior</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Próximo</span>
+    </button>
+  </div>
+
 </main>
 <script src="/assets/dist/js/bootstrap.bundle.min.js"></script>
     </body>
